@@ -1,5 +1,5 @@
 #include <iostream>
-#include <string.h>
+#include <string>
 using namespace std;
 
 int main()
@@ -8,13 +8,17 @@ int main()
     string sentence;
     int cnt = 0;
    
-    getline (cin, sentence);
+    getline(cin, sentence);
+
     if(!sentence.size()==0){
-        for(int i=1; i<sentence.size()-1; i++)
+        for(int i=0; i<sentence.size(); i++)
             if(sentence[i] == ' ')
                 cnt++;
         cnt++;
     }
-    
+    if(sentence[0] == ' ')
+        cnt--;
+    if(sentence[sentence.size()-1] == ' ')
+        cnt--;
     cout << cnt;
 }
